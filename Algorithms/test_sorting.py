@@ -27,3 +27,7 @@ def test_selection_sort():
 
 def test_insertion_sort():
     try_random_cases(insertion_sort)
+
+
+def test_merge_sort():
+    try_random_cases(merge_sort)

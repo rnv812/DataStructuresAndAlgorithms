@@ -26,3 +26,38 @@ def insertion_sort(lst: list) -> None:
         for j in range(i + 1, n):
             if lst[j] < lst[i]:
                 lst[i], lst[j] = lst[j], lst[i]
+
+
+def merge_sort(lst: list) -> None:
+    def merge(lst: list, start: int, middle: int, end: int) -> None:
+        lst_temp = []
+        pos_left = start
+        pos_righ = middle
+
+        while pos_left < middle and pos_righ < end:
+            if lst[pos_left] < lst[pos_righ]:
+                lst_temp.append(lst[pos_left])
+                pos_left += 1
+            else:
+                lst_temp.append(lst[pos_righ])
+                pos_righ += 1
+
+        while pos_left < middle:
+            lst_temp.append(lst[pos_left])
+            pos_left += 1
+
+        while pos_righ < end:
+            lst_temp.append(lst[pos_righ])
+            pos_righ += 1
+
+        for i, num in enumerate(lst_temp):
+            lst[start + i] = num
+
+    def sort(lst: list, start: int, end: int):
+        if (end - start) > 1:
+            middle = (end + start) // 2
+            sort(lst, start, middle)
+            sort(lst, middle, end)
+            merge(lst, start, middle, end)
+
+    sort(lst, 0, len(lst))
