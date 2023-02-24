@@ -12,9 +12,17 @@ def bubble_sort(lst: list) -> None:
 
 def selection_sort(lst: list) -> None:
     n = len(lst)
-    for step in range(n):
-        min_idx = step
-        for i in range(step + 1, n):
-            if lst[i] < lst[min_idx]:
-                min_idx = i
-        lst[step], lst[min_idx] = lst[min_idx], lst[step]
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if lst[j] < lst[min_idx]:
+                min_idx = j
+        lst[i], lst[min_idx] = lst[min_idx], lst[i]
+
+
+def insertion_sort(lst: list) -> None:
+    n = len(lst)
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            if lst[j] < lst[i]:
+                lst[i], lst[j] = lst[j], lst[i]

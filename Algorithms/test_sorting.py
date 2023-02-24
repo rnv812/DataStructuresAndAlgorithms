@@ -23,3 +23,7 @@ def test_bubble_sort():
 
 def test_selection_sort():
     try_random_cases(selection_sort)
+
+
+def test_insertion_sort():
+    try_random_cases(insertion_sort)
