@@ -53,11 +53,47 @@ def merge_sort(lst: list) -> None:
         for i, num in enumerate(lst_temp):
             lst[start + i] = num
 
-    def sort(lst: list, start: int, end: int):
+    def sort(lst: list, start: int, end: int) -> None:
         if (end - start) > 1:
             middle = (end + start) // 2
             sort(lst, start, middle)
             sort(lst, middle, end)
             merge(lst, start, middle, end)
+
+    sort(lst, 0, len(lst))
+
+
+def quick_sort(lst: list) -> None:
+    def partition(lst: list, start: int, end: int) -> int:
+        # choose pivot using Lomuto median
+        mid = (start + end) // 2
+        if lst[mid] < lst[start]:
+            lst[mid], lst[start] = lst[start], lst[mid]
+        if lst[end - 1] < lst[start]:
+            lst[end - 1], lst[start] = lst[start], lst[end - 1]
+        if lst[end - 1] < lst[mid]:
+            lst[end - 1], lst[mid] = lst[mid], lst[end - 1]
+        pivot = lst[mid]
+
+        i = start
+        j = end - 1
+        while True:
+            while lst[i] < pivot:
+                i += 1
+            while lst[j] > pivot:
+                j -= 1
+            if i >= j:
+                break
+            lst[i], lst[j] = lst[j], lst[i]
+            i += 1
+            j -= 1
+
+        return i
+
+    def sort(lst: list, start: int, end: int) -> None:
+        if (end - start) > 1:
+            pivot = partition(lst, start, end)
+            sort(lst, start, pivot)
+            sort(lst, pivot, end)
 
     sort(lst, 0, len(lst))
