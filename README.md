@@ -1,1 +1,1 @@
-# DataStructuresAndAlgorithms
+# SortingAlgorithms

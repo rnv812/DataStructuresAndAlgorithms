@@ -1,4 +1,4 @@
-from algorithms import sorting
+from sorting import * 
 from typing import Callable
 from utils import get_random_list
 
@@ -17,20 +17,20 @@ def try_random_cases(
 
 
 def test_bubble_sort():
-    try_random_cases(sorting.bubble_sort)
+    try_random_cases(bubble_sort)
 
 
 def test_selection_sort():
-    try_random_cases(sorting.selection_sort)
+    try_random_cases(selection_sort)
 
 
 def test_insertion_sort():
-    try_random_cases(sorting.insertion_sort)
+    try_random_cases(insertion_sort)
 
 
 def test_merge_sort():
-    try_random_cases(sorting.merge_sort)
+    try_random_cases(merge_sort)
 
 
 def test_quick_sort():
-    try_random_cases(sorting.quick_sort)
+    try_random_cases(quick_sort)
